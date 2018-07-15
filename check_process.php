@@ -6,16 +6,7 @@ $config = array(
     "dbname" => "machohacks2018"
   );
 
-  $config_chain = array(
-    "host" => "hackathon.haoyang.space",
-    "dbuser" => "hackathon",
-    "dbpw" => "hackathon",
-    "dbname" => "hackathon"
-  );
-
   $conn = mysqli_connect($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
-
-  $conn_chain = mysqli_connect($config_chain["host"], $config_chain["dbuser"], $config_chain["dbpw"], $config_chain["dbname"]);
 
   $code = $_POST['code'];
 
@@ -34,7 +25,7 @@ $config = array(
     $valid = false;
     // validating from the blockchain
     $sql_chain = "SELECT data FROM blockchain";
-    $result_chain = mysqli_query($conn_chain, $sql_chain);
+    $result_chain = mysqli_query($conn, $sql_chain);
 
     // rendering data
     $sql = "SELECT * FROM transcript WHERE randKey = '{$keyArr[$i]}'";
@@ -47,9 +38,11 @@ $config = array(
     echo "<p>Name: {$row['name']}<br>
     Term: {$row['term']}</p>";
 
-    echo "<table><tr><th>Course</th><th>Grade</th>
-          <tr><td>{$data[0]}</td><td>{$data[1]}</td></tr>
-          <tr><td>{$data[2]}</td><td>{$data[3]}</td></tr></table>";
+    echo "<table><tr><th>Course</th><th>Grade</th></tr>";
+    for ($t = 0; $t < count($data); $t = $t + 2) {
+      echo "<tr><td>{$data[$t]}</td><td>{$data[$t+1]}</td></tr>";
+    }
+    echo "</table>";
 
     $str = $row['number'] . $row['name'] . $row['term'] . $row['data'];
     $hash = md5($str);
