@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
     <div class="userinfo">  
       <h1>BCIT Transcript Verification</h1>
       <form action='check_process.php' method='post' id='userform'>
