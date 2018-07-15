@@ -3,3 +3,11 @@
 body {
     font-family: 'Roboto';
 }
+
+table, tr, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 5px 20px;
+    margin: 1em 0;
+    text-align: center;
+}
