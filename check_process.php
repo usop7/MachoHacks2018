@@ -10,11 +10,27 @@ $config = array(
 
   $code = $_POST['code'];
 
-  $sql = "SELECT * FROM transcript WHERE randKey = '{$code}'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_array($result);
+  $keyArr = explode("+", $code);
 
-  echo "<p>{$row['name']}</p>";
+  echo "<h1>BCIT Transcript Verification</h1>";
+
+  for($i = 0; $i < count($keyArr); $i++ ) {
+    $sql = "SELECT * FROM transcript WHERE randKey = '{$keyArr[$i]}'";
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    $data = explode(",", $row['data']);
+
+    echo "<p>Name: {$row['name']}<br>
+    Term: {$row['term']}</p>";
+    echo "<p>{$data[0]}</p>";
+    echo "<p>{$data[1]}</p>";
+    echo "<hr>";
+
+  }
+
+
+
 
 
 
