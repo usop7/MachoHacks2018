@@ -10,9 +10,11 @@ $config = array(
 
   $code = $_POST['code'];
 
-  $sql = "SELECT * FROM transcript WHERE code = {$code}";
+  $sql = "SELECT * FROM transcript WHERE randKey = '{$code}'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_array($result);
+
+  echo "<p>{$row['name']}</p>";
 
 
 
