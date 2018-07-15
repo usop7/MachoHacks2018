@@ -2,8 +2,8 @@
 $config = array(
     "host" => "localhost",
     "dbuser" => "root",
-    "dbpw" => "",
-    "dbname" => "machohacks"
+    "dbpw" => "121212",
+    "dbname" => "machohacks2018"
   );
 
   $config_chain = array(
