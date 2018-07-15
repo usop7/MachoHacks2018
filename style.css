@@ -38,3 +38,11 @@ table, tr, th, td {
     height: 30px;
     width: 300px;
 }
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}

@@ -61,7 +61,11 @@ $config = array(
       }
     }
 
-    echo $valid ? "<b>Valid!</b>" : "<b>Not Valid</b>";
+    if ($valid) {
+      echo "<span class='green'><b>Valid!</b></span>";
+    } else {
+      echo "<span class='red'><b>Not Valid!</b></span>";
+    }
 
     echo "<hr>";
 
