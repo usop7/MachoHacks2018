@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>BCIT Transcript Verification</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>BCIT Transcript Verification</h1>
