@@ -1,0 +1,14 @@
+CREATE TABLE transcript (
+    id int(11) not null auto_increment,
+    number varchar(50) not null,
+    name varchar(100) not null,
+    term varchar(100) not null,
+    data varchar(1000) not null,
+    randKey varchar(500) not null,
+    primary key(id)
+);
+
+INSERT INTO transcript (number, name, term, data, randKey) VALUES ('A0101010', 'Andrew Bernard', '2018 Winter', 'Java:A, Web:C', '1a2b');
+INSERT INTO transcript (number, name, term, data, randKey) VALUES ('A0111111', 'Michael Scott', '2018 Winter', 'Java:B, Web:A', '3c4d');
+INSERT INTO transcript (number, name, term, data, randKey) VALUES ('A0101010', 'Andrew Bernard', '2017 Fall', 'Math:A, Database:A', '5e6f');
+INSERT INTO transcript (number, name, term, data, randKey) VALUES ('A0111111', 'Michael Scott', '2017 Fall', 'Math:C, Database:B', '7g8h');

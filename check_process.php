@@ -6,7 +6,16 @@ $config = array(
     "dbname" => "machohacks2018"
   );
 
+  $config_chain = array(
+    "host" => "hackathon.haoyang.space",
+    "dbuser" => "hackathon",
+    "dbpw" => "hackathon",
+    "dbname" => "hackathon"
+  );
+
   $conn = mysqli_connect($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
+
+  $conn_chain = mysqli_connect($config_chain["host"], $config_chain["dbuser"], $config_chain["dbpw"], $config_chain["dbname"]);
 
   $code = $_POST['code'];
 
@@ -22,6 +31,12 @@ $config = array(
   }
   
   for($i = 0; $i < count($keyArr); $i++ ) {
+    $valid = false;
+    // validating from the blockchain
+    $sql_chain = "SELECT data FROM blockchain";
+    $result_chain = mysqli_query($conn_chain, $sql_chain);
+
+    // rendering data
     $sql = "SELECT * FROM transcript WHERE randKey = '{$keyArr[$i]}'";
 
     $result = mysqli_query($conn, $sql);
@@ -38,16 +53,19 @@ $config = array(
 
     $str = $row['number'] . $row['name'] . $row['term'] . $row['data'];
     $hash = md5($str);
-    echo "<small><i>$hash</i></small>";
+    echo "<small><i>$hash</i></small><br>";
+
+    while($row_chain = mysqli_fetch_array($result_chain)) {
+      if ($row_chain['data'] == $hash) {
+        $valid = true;
+      }
+    }
+
+    echo $valid ? "<b>Valid!</b>" : "<b>Not Valid</b>";
 
     echo "<hr>";
 
   }
-
-
-
-
-
 
 
 ?>
