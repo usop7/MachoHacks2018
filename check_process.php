@@ -2,8 +2,8 @@
 $config = array(
     "host" => "localhost",
     "dbuser" => "root",
-    "dbpw" => "121212",
-    "dbname" => "MachoHacks2018"
+    "dbpw" => "",
+    "dbname" => "machohacks"
   );
 
   $conn = mysqli_connect($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
@@ -23,8 +23,16 @@ $config = array(
 
     echo "<p>Name: {$row['name']}<br>
     Term: {$row['term']}</p>";
-    echo "<p>{$data[0]}</p>";
-    echo "<p>{$data[1]}</p>";
+
+    $data1 = explode(":", $data[0]);
+
+    $data2 = explode(":", $data[1]);
+
+
+    echo "<table><tr><th>Course</th><th>Grade</th>
+          <tr><th>{$data1[0]}</th><th>{$data1[1]}</th></tr>
+          <tr><th>{$data2[0]}</th><th>{$data2[1]}</th></tr></table>";
+
     echo "<hr>";
 
   }
