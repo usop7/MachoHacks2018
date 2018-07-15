@@ -4,13 +4,20 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>BCIT Transcript Verification</h1>
-    <p>Type the verification code</p>
-    <form action='check_process.php' method='post'>
-      <input type='text' name='code' placeholder='verification code'>
-      <input type='submit' name='check'>
-    </form>
+    <div class="userinfo">  
+      <h1>BCIT Transcript Verification</h1>
+      <form action='check_process.php' method='post' id='userform'>
+        <input type='text' name='code' placeholder='Enter verification code' class='inputbox'>
+        <input type='button' name='check' class="btn" value="verify" >
+      </form>
+    </div>
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $('.btn').click(
+      function() {
+        $('#userform').submit();
+      });
+  </script>
   </body>
 </html>
