@@ -2,8 +2,8 @@
 $config = array(
     "host" => "localhost",
     "dbuser" => "root",
-    "dbpw" => "",
-    "dbname" => "machohacks"
+    "dbpw" => "121212",
+    "dbname" => "machohacks2018"
   );
 
   $conn = mysqli_connect($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
@@ -42,16 +42,8 @@ $config = array(
       <img src='https://media.giphy.com/media/jWexOOlYe241y/giphy.gif'>";
       } else {
 
-<<<<<<< HEAD
-    echo "<table><tr><th>Course</th><th>Grade</th></tr>";
-    for ($t = 0; $t < count($data); $t = $t + 2) {
-      echo "<tr><td>{$data[$t]}</td><td>{$data[$t+1]}</td></tr>";
-    }
-    echo "</table>";
-=======
       echo "<p>Name: {$row['name']}<br>
       Term: {$row['term']}</p>";
->>>>>>> 63bf074b932dcc9d7b5c2d7e150daddfccea11da
 
       echo "<table><tr><th>Course</th><th>Grade</th>
             <tr><td>{$data[0]}</td><td>{$data[1]}</td></tr>
